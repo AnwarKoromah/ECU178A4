@@ -1,0 +1,52 @@
+import sys
+from tkinter import *
+import os
+
+dict = {"Anwar":"aa"}
+
+def check():
+    userAttempt = (str(q.get()))
+    pwordAttempt = (str(v.get()))
+
+    pass1 = dict[userAttempt]
+
+    if pwordAttempt == pass1:
+        print("Entry Confirmed")
+        os.system('F:\ALL\ECU178A4-dev\MainMenu.py')
+    else:
+        print("Entry Denied")
+    return
+
+root = Tk()
+#The Canvas
+canvas = Canvas(root, width=700, height=500, bg='light blue')
+canvas.pack()
+#Login label
+login = Label(root, text='Please login if you wish to access the simulation', font=30)
+loginWindow = canvas.create_window(350,150, window = login)
+#Username label
+user = Label(root, text='Username', font=10)
+userWindow = canvas.create_window(200,200, window = user)
+#Password label
+passw = Label(root, text='Password', font=10)
+passWindow = canvas.create_window(200,250, window = passw)
+
+#Username entry
+q = StringVar()
+userEntry = Entry(root, textvariable=q)
+userEntry.pack()
+#Password entry
+v = StringVar()
+pwordEntry = Entry(root, textvariable=v)
+pwordEntry.pack()
+
+#Username Entry Window
+userEntryWindow = canvas.create_window(310,200, window = userEntry)
+#Password Entry Window
+pwordEntryWindow = canvas.create_window(310,250, window = pwordEntry)
+#ButtonForConfirmation
+confirm = Button(root, text='Confirm', command=check, font=10, fg="green")
+confirmWindow = canvas.create_window(350,400, window=confirm)
+
+
+root.mainloop()
